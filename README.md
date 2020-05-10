@@ -12,6 +12,7 @@ python3 app.py
 
 * Note : If VirusTotal module crashes, please check your VirusTotal API KEY in the config.py
 * Development Plan is in [TODO](https://github.com/Saket-Upadhyay/SAMPARK/blob/master/TODO.md)
+* VirusTotal API removed in public version. The Heroku app is hosted by private repo.
 
 # Screenshots 
 ![](https://raw.githubusercontent.com/Saket-Upadhyay/SAMPARK/master/DOCS/Screenshots/Screenshot1.png)
