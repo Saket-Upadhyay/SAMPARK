@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SAMPARK | RESULT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../static/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Question</th>
+                                <th class="column2">Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            {% if TRANRESULT == "YES" %}
+                            <tr>
+                                <td class="column1">Is this website safe for transaction?</td>
+                                <td class="column2">
+                                    <p style="color: green;"><strong>{{TRANRESULT}}</strong></p>
+                                </td>
+                            </tr>
+                            {% endif %}
+
+                                                        {% if TRANRESULT == "NO" %}
+                                                        <tr>
+                                                            <td class="column1">Is this website safe for transaction?</td>
+                                                            <td class="column2">
+                                                                <p style="color: red;"><strong>{{TRANRESULT}}</strong></p>
+                                                            </td>
+                                                        </tr>
+                                                        {% endif %}
+
+
+                            <tr>
+                                <td class="column1">Website under scan</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{WEBUS}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">Malware Scan Result</td>
+                                <td class="column2">
+                                    {% if MALSR == "SAFE" %}
+                                    <p style="color: green;"><strong>SAFE</strong></p>
+                                    {% endif %}
+                                    {% if MALSR == "UNSAFE" %}
+                                    <p style="color:red;"><strong>UNSAFE</strong></p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% if MALSR == "UNSAFE" %}
+                            <tr>
+                                 <td class="column1">Malware Scan Triggers</td>
+                                 <td class="column2">
+                                    <p style="color: red;">{{TRIGGERS}}</p>
+                                </td>
+                                 </tr>
+                            
+
+                             <tr>
+                                 <td class="column1">Malware Scan Categories</td>
+                                 <td class="column2">
+                                    <p style="color: red;">{{MALHITS}}</p>
+                                </td>
+                                 </tr>
+
+
+                            {% endif %}
+
+
+
+                        
+                            {% if ERROR404 != True %}
+
+                            {% if HTTPSSCORE == "YES" %}
+                            <tr>
+                                <td class="column1">Is website using HTTPS?</td>
+                                <td class="column2">
+                                    <p style="color: green;"><strong>{{HTTPSSCORE}}</strong></p>
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="column1">What is the redirection scheme for HTTPS?</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{REDIR}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Host Name</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT0}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Peer Name</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT1}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Common Name</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT2}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Alternate Name</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT3}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Certificate Issuer</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT4}}</p>
+                                </td>
+                            </tr>
+
+                            {% if CERTTRUST == "YES" %}
+                            <tr>
+                                <td class="column1">SSL Certificate Issuer in Trusted List</td>
+                                <td class="column2">
+                                    <p style="color: green;"><strong>YES</strong></p>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if CERTTRUST == "NO" %}
+                            <tr>
+                                <td class="column1">SSL Certificate Issuer in Trusted List</td>
+                                <td class="column2">
+                                    <p style="color: red;"><strong>NO</strong></p>
+                                </td>
+                            </tr>
+                            {% endif %}
+
+
+                            <tr>
+                                <td class="column1">SSL Not valid Before</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT5}}</p>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="column1">SSL Not valid Before</td>
+                                <td class="column2">
+                                    <p style="color: black;">{{CERT6}}</p>
+                                </td>
+                            </tr>
+
+                            {% endif %}
+
+
+                            {% if HTTPSSCORE == "NO" %}
+
+                                                        <tr>
+                                                            <td class="column1">Is website using HTTPS?</td>
+                                                            <td class="column2">
+                                                                <p style="color: red;"><strong>{{HTTPSSCORE}}</strong></p>
+                                                            </td>
+                                                        </tr>
+                                                        {% endif %}
+
+
+                            {% endif %}
+
+                            {% if COVRED == "YES" %}
+                            <tr>
+                                <td class="column1">Do website perform Covert Redirection?</td>
+                                <td class="column2">
+                                    <p style="color: red;"><strong>{{COVRED}}</strong></p>
+                                </td>
+                            </tr>
+
+                            {% endif %}
+
+                            {% if COVRED == "NO" %}
+                            <tr>
+                                <td class="column1">Do website perform Covert Redirection?</td>
+                                <td class="column2">
+                                    <p style="color: green;"><strong>{{COVRED}}</strong></p>
+                                </td>
+                            </tr>
+                            
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===============================================================================================-->
+    <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../static/vendor/bootstrap/js/popper.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../static/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
