@@ -42,6 +42,8 @@ def upload_file():
 
 
 def processurl(urltsm,agent):
+
+    urltsm=httpscheck.rmrf_protocol(urltsm)
     #ASSUME NOT SAFE AS DEFAULT
     ISWEBSITESAFE = True
     CERTSCORE = "DANGER"     # THIS WILL MAKE IT NOT SAFE BY DEFAULT
