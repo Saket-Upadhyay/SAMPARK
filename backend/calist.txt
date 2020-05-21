@@ -1,1 +1,1 @@
-Comodo;Rapid;Thawte;Sectigo;GeoTrust;Symantec;DigiCert;Entrust;GlobalSign;IdenTrust;Thawte
+Comodo;Rapid;Thawte;Sectigo;GeoTrust;Symantec;DigiCert;Entrust;GlobalSign;IdenTrust;Thawte;Let's Encrypt;
