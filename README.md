@@ -1,3 +1,11 @@
+> NOTE: This SAMPARK prototype (v4.0) was initially created by [Saket Upadhyay](https://github.com/Saket-Upadhyay) and [Oorja Rungta](https://github.com/OorjaRungta) as a hackathon entry for HackCoVIT'20. 
+> Now it's undertaken by "Google Developer Student Club (DSC) VIT Bhopal" (on 11th Jan. 2021) for further development of the concept, under "Web Development and Security" Team.
+
+> **Further development can be tracked on [DSCVITBHOPAL/SAMPARK](https://github.com/DSCVITBHOPAL/SAMPARK).**
+> We might update it here too if it's okay with DSC's community guidelines.
+
+---
+
 # SAMPARK
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?style=for-the-badge&logo=heroku)](https://samparkscan.herokuapp.com/)  [![Version](https://img.shields.io/badge/Version-4.0-green?style=for-the-badge)](#) [![License-MIT-blue](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/Saket-Upadhyay/SAMPARK/blob/master/LICENSE) [![made-with-python](https://img.shields.io/badge/Python-3-green?style=for-the-badge&logo=python)](https://www.python.org/)
 ### Prototype v4.0
