@@ -12,3 +12,4 @@
 
 ##### Longterm vision
 - [ ] PACE Integration
+- [ ] Bowser Extension (under DSC)
