@@ -42,7 +42,7 @@ def getResult(KEY,URL):
                     pass
 
         except KeyError:
-            print("KeyErron in VT module")
+            print("KeyError in VT module")
 
 
 if __name__ == '__main__':

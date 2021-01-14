@@ -13,6 +13,12 @@ app = Flask(__name__)
 app.secret_key = "secret key";
 app.config['MAX_CONTENT_LENGTH'] = 350 * 1024 * 1024;
 
+vtscan_bool=False
+
+if config.VTAPIKEY == "YOU_NEED_TO_ENTER_YOUR_API_KEY_HERE_FOR_VIRUSTOTAL_SCAN_TO_WORK":
+    vtscan_bool=False
+else:
+    vtscan_bool=True
 
 @app.route('/')
 def hello_world():
@@ -60,27 +66,30 @@ def processurl(urltsm,agent):
         'webstat': "Website Available"
     }
 
-    RESULT=vtscan.getResult(config.VTAPIKEY,urltsm)
+    if vtscan_bool:
+        RESULT=vtscan.getResult(config.VTAPIKEY,urltsm)
 
-    MALWARESCORE = RESULT['positives']
+        MALWARESCORE = RESULT['positives']
 
-    TRIGGERS=[]
-    MALHITS=[]
+        TRIGGERS=[]
+        MALHITS=[]
 
-    if MALWARESCORE > 0:
-        REASON['overall']=REASON['overall']+" * MALWARE HIT"
-        REASON['malware']= "This website is reported to contain malicious scripts or tools, or it is created with malicious intent. BE CAUTIOUS. An adversary can take advantage and steal your data."
-        ISWEBSITESAFE= False
+        if MALWARESCORE > 0:
+            REASON['overall']=REASON['overall']+" * MALWARE HIT"
+            REASON['malware']= "This website is reported to contain malicious scripts or tools, or it is created with malicious intent. BE CAUTIOUS. An adversary can take advantage and steal your data."
+            ISWEBSITESAFE= False
 
-    if MALWARESCORE > 0:
-        for i in RESULT['scans']:
-            if RESULT['scans'][i]['detected'] == True:
-                TRIGGERS.append(i)
-                MALHITS.append(RESULT['scans'][i]['result'])
-
-
-    print()
-
+        if MALWARESCORE > 0:
+            for i in RESULT['scans']:
+                if RESULT['scans'][i]['detected'] == True:
+                    TRIGGERS.append(i)
+                    MALHITS.append(RESULT['scans'][i]['result'])
+    else:
+        TRIGGERS=[]
+        MALHITS=[]
+        TRIGGERS.append("--")
+        MALHITS.append("--")
+        REASON['malware']="VirusTotal API key not used, skipping malware scan."
 
 ###### =======================================
 
@@ -163,12 +172,15 @@ def processurl(urltsm,agent):
 
     WEBUS=urltsm
 
-    if MALWARESCORE > 0:
-        MALSR="UNSAFE"
-        TRIGGERS=str(TRIGGERS)
-        MALHITS=str(MALHITS)
+    if vtscan_bool:
+        if MALWARESCORE > 0:
+            MALSR="UNSAFE"
+            TRIGGERS=str(TRIGGERS)
+            MALHITS=str(MALHITS)
+        else:
+            MALSR = "SAFE"
     else:
-        MALSR = "SAFE"
+        MALSR="N/A"
 
     if "NO" not in ISHTTPS:
         HTTPSSCORE="YES"

@@ -80,6 +80,10 @@
                                     {% if MALSR == "UNSAFE" %}
                                     <p style="color:red;"><strong>MALWARE FOUND</strong></p>
                                     {% endif %}
+                                    {% if MALSR == "N/A" %}
+                                    <p style="color:orange;"><strong>N/A</strong></p>
+                                    {% endif %}
+
                                 </td>
                                 <td class="column3">{{REASON.malware}}</td>
                             </tr>
