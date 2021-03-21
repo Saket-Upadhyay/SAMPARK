@@ -4,6 +4,8 @@
 > **Further development can be tracked on [DSCVITBHOPAL/Sampark-Web-Extension](https://github.com/DSCVITBHOPAL/Sampark-Web-Extension).**
 > We might update it here too if it's okay with DSC's community guidelines.
 
+**[हिन्दी में पढ़ें](https://github.com/Saket-Upadhyay/SAMPARK/blob/master/Readme_HI.md)**
+
 ---
 
 # SAMPARK
